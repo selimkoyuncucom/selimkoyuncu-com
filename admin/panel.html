@@ -107,6 +107,17 @@ location.href="login.html";
 }
 
 </script>
+<script>
 
+function sayfa(link){
+    document.getElementById("icerik").src = link;
+}
+
+function cikis(){
+    localStorage.removeItem("login");
+    window.location.href="login.html";
+}
+
+</script>
 </body>
 </html>
