@@ -2,46 +2,29 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin Panel - Selim Koyuncu</title>
+    <title>Admin Panel</title>
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 20px; background-color: #f4f4f4; }
-        #login-screen { margin-top: 100px; background: white; padding: 30px; display: inline-block; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        #panel-content { display: none; }
-        input { padding: 10px; margin: 10px; border: 1px solid #ccc; border-radius: 5px; }
-        button { padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #333; }
+        #login-screen { background: white; padding: 20px; border-radius: 8px; }
+        #panel-content { display: none; width: 100%; height: 100vh; }
     </style>
 </head>
 <body>
 
-    <!-- Şifre Giriş Ekranı -->
     <div id="login-screen">
-        <h2>Admin Girişi</h2>
-        <!-- type="password" şifrenin gizli görünmesini sağlar -->
-        <input type="password" id="sifre" placeholder="Şifre Giriniz">
+        <input type="password" id="sifre" placeholder="Şifre">
         <button onclick="kontrolEt()">Giriş Yap</button>
     </div>
 
-    <!-- Panel İçeriği (Girişten sonra açılacak) -->
     <div id="panel-content">
-        <h1>Yönetim Paneli</h1>
-        
-        <h2>💰 Finans Sistemi</h2>
-        <iframe src="https://script.google.com/macros/s/AKfycbyR7MllZlGUg0nKGIxaRogH-I0C75lzSsXdNqGEGqWUqKgZo_SItcdgWUOHOlW3wjBuRw/exec" width="100%" height="500"></iframe>
-
-        <h2>📅 Organizasyon</h2>
-        <iframe src="https://script.google.com/macros/s/AKfycbyTZtwIfQzGyQ-aqXazRD29aO-mATrOK-vdg5RSbQ4_rg0CEXX32-Hc2ah0L0xscF3w/exec" width="100%" height="500"></iframe>
-        
-        <br><br>
-        <button onclick="location.reload()">Çıkış Yap</button>
+        <iframe src="https://script.google.com/macros/s/AKfycbyR7MllZlGUg0nKGIxaRogH-I0C75lzSsXdNqGEGqWUqKgZo_SItcdgWUOHOlW3wjBuRw/exec" width="100%" height="45%"></iframe>
+        <iframe src="https://script.google.com/macros/s/AKfycbyTZtwIfQzGyQ-aqXazRD29aO-mATrOK-vdg5RSbQ4_rg0CEXX32-Hc2ah0L0xscF3w/exec" width="100%" height="45%"></iframe>
     </div>
 
     <script>
         function kontrolEt() {
-            var girilenSifre = document.getElementById("sifre").value;
-            // Buraya şifrenizi tırnak içinde yazın
-            var dogruSifre = "224770506"; 
-
-            if (girilenSifre === dogruSifre) {
+            var girilenSifre = document.getElementById("sifre").value.trim();
+            if (girilenSifre === "224770506") {
                 document.getElementById("login-screen").style.display = "none";
                 document.getElementById("panel-content").style.display = "block";
             } else {
