@@ -83,3 +83,17 @@ function login() {
 
 </body>
 </html>
+<!-- login.html için temel mantık -->
+<input type="password" id="sifre" placeholder="Şifrenizi Girin">
+<button onclick="girisYap()">Giriş</button>
+
+<script>
+function girisYap() {
+    var sifre = document.getElementById("sifre").value;
+    if (sifre == "SizinBelirlediginizSifre") { // Burayı değiştirin
+        window.location.href = "panel.html";
+    } else {
+        alert("Hatalı Şifre!");
+    }
+}
+</script>
