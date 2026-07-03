@@ -1,84 +1,41 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selim Koyuncu | Yönetim Paneli</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Yönetim Paneli</title>
+<link rel="stylesheet" href="style.css">
 
 <style>
-
-body{
-
-margin:0;
-
-font-family:Arial;
-
-background:#f1f5f9;
-
-}
-
-header{
-
-background:#0f172a;
-
-color:white;
-
-padding:20px;
-
+.header{
+height:70px;
+background:#fff;
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
+padding:0 25px;
+border-bottom:1px solid #ddd;
 }
 
-button{
+.header h2{
+font-size:22px;
+}
 
-padding:10px 20px;
-
+.logout{
+background:#ef4444;
+color:#fff;
+border:none;
+padding:10px 18px;
+border-radius:8px;
 cursor:pointer;
-
-}
-
-.cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-
-gap:20px;
-
-padding:30px;
-
-}
-
-.card{
-
-background:white;
-
-border-radius:12px;
-
-padding:20px;
-
-box-shadow:0 0 10px rgba(0,0,0,.1);
-
 }
 
 iframe{
-
 width:100%;
-
-height:500px;
-
+height:calc(100vh - 70px);
 border:none;
-
 }
-
 </style>
 
 </head>
@@ -86,44 +43,60 @@ border:none;
 <body>
 
 <script>
-
 if(localStorage.getItem("login")!="ok"){
-
 location.href="login.html";
-
 }
-
 </script>
 
-<header>
+<div class="sidebar">
 
-<h2>Selim Koyuncu Yönetim Paneli</h2>
+<div class="logo">
+Selim Koyuncu
+</div>
 
-<button onclick="cikis()">Çıkış</button>
+<div class="menu">
 
-</header>
+<a href="#" onclick="sayfa('dashboard.html')">🏠 Dashboard</a>
 
-<div class="cards">
+<a href="#" onclick="sayfa('finans.html')">💰 Finans</a>
 
-<div class="card">
+<a href="#" onclick="sayfa('organizasyon.html')">📅 Organizasyon</a>
 
-<h3>💰 Finans Sistemi</h3>
+<a href="#" onclick="sayfa('haberler.html')">📰 Haberler</a>
 
-<iframe src="https://script.google.com/macros/s/AKfycbyR7MllZlGUg0nKGIxaRogH-I0C75lzSsXdNqGEGqWUqKgZo_SItcdgWUOHOlW3wjBuRw/exec"></iframe>
+<a href="#" onclick="sayfa('koyler.html')">🏡 Köyler</a>
+
+<a href="#" onclick="sayfa('galeri.html')">📷 Galeri</a>
+
+<a href="#" onclick="sayfa('ayarlar.html')">⚙ Ayarlar</a>
 
 </div>
 
-<div class="card">
+</div>
 
-<h3>📅 Organizasyon</h3>
+<div class="content">
 
-<iframe src="https://script.google.com/macros/s/AKfycbyTZtwIfQzGyQ-aqXazRD29aO-mATrOK-vdg5RSbQ4_rg0CEXX32-Hc2ah0L0xscF3w/exec"></iframe>
+<div class="header">
+
+<h2>Yönetim Paneli</h2>
+
+<button class="logout" onclick="cikis()">
+Çıkış Yap
+</button>
 
 </div>
+
+<iframe id="icerik" src="dashboard.html"></iframe>
 
 </div>
 
 <script>
+
+function sayfa(link){
+
+document.getElementById("icerik").src=link;
+
+}
 
 function cikis(){
 
@@ -136,5 +109,4 @@ location.href="login.html";
 </script>
 
 </body>
-
 </html>
