@@ -5,64 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Her Mevsim Amasya | Selim Koyuncu</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap');
+        /* Modern ve temiz görünüm */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
 
-        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Inter', sans-serif; }
-
-        .hero {
+        .container {
             height: 100vh;
             width: 100vw;
-            /* Yüksek kaliteli Amasya görseli */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('http://googleusercontent.com/image_collection/image_retrieval/9192018491884921857_0');
+            /* Arka plan resmini buraya tanımlıyoruz */
+            background-image: url('http://googleusercontent.com/image_generation_content/299');
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: #fff;
             text-align: center;
+            position: relative;
         }
 
-        .brand-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        /* Görselin üzerini hafif karartarak yazının okunmasını sağlıyoruz */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); 
         }
 
-        .sub-text {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
+        .content {
+            z-index: 1;
+            color: #fff;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            opacity: 0.9;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-top: 10px;
+            font-weight: 300;
         }
 
         .btn {
-            margin-top: 40px;
-            padding: 15px 40px;
-            border: 1px solid white;
+            margin-top: 30px;
+            padding: 15px 35px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #fff;
             color: white;
             text-decoration: none;
-            font-weight: 300;
-            transition: 0.4s;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            border-radius: 5px;
+            transition: 0.3s;
         }
 
         .btn:hover {
-            background: white;
-            color: black;
+            background: #fff;
+            color: #000;
         }
     </style>
 </head>
 <body>
 
-<div class="hero">
-    <div class="brand-name">Her Mevsim Amasya</div>
-    <div class="sub-text">Selim Koyuncu | Dijital Yayın Platformu</div>
-    <a href="https://www.instagram.com/her_mevsim_amasya/" class="btn" target="_blank">Projeyi Keşfet</a>
+<div class="container">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1>HER MEVSİM AMASYA</h1>
+        <p>Selim Koyuncu | Çok Yakında</p>
+        <a href="https://www.instagram.com/her_mevsim_amasya/" class="btn" target="_blank">Instagram'ı Ziyaret Et</a>
+    </div>
 </div>
 
 </body>
