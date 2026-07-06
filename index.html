@@ -2,33 +2,52 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="style.css">
-    <title>Selim KOYUNCU</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selim Koyuncu | @hermevsimamasya</title>
+    <style>
+        /* Modern Stil */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+        }
+
+        .bg {
+            /* Buraya arka plan resminizin linkini koyun */
+            background-image: url('https://images.unsplash.com/photo-1505672678657-cc71f786b36a?q=80&w=2070');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .content {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 10px; }
+        p { font-size: 1.2rem; color: #ddd; }
+        .social { margin-top: 20px; font-weight: bold; color: #ffcc00; }
+    </style>
 </head>
 <body>
-    <div class="main-container">
-        <!-- Sol Menü -->
-        <aside class="sidebar">
-            <h3>Amasya'da Turizm</h3> <!-- Burayı "AMASYA'DA TURİZM" yapabilirsin -->
-            <ul>
-                <li>Kültür Turizmi</li>
-                <div class="card">Tarihi Yerler</div>
-                <li>Tarihi Yerler</li>
-                <li>Köy Tanıtımları</li>
-                <li>Drone Videoları</li>
-            </ul>
-        </aside>
 
-        <!-- Sağ İçerik -->
-        <main class="content">
-            <h2 class="title">AMASYA'DA TURİZM</h2>
-            <div class="grid">
-                <div class="card">Konaklama</div>
-                <div class="card">Tarihi Yerler</div>
-                <div class="card">Drone Videoları</div>
-                <div class="card">Köy Tanıtımları</div>
-            </div>
-        </main>
+<div class="bg">
+    <div class="content">
+        <h1>Çok Yakında!</h1>
+        <p><strong>Selim Koyuncu</strong> olarak projelerimizi geliştiriyoruz.</p>
+        <div class="social">Bizi takipte kalın: @hermevsimamasya</div>
     </div>
+</div>
+
 </body>
 </html>
