@@ -1,3 +1,10 @@
+<?php
+session_start(); // Oturumu başlat
+if (!isset($_SESSION['giris_yapildi'])) {
+    header("Location: login.php"); // Giriş yapılmadıysa login sayfasına at
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="tr">
 <head>
