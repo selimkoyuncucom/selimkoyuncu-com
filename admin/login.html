@@ -1,125 +1,32 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Admin Giriş</title>
-
-<style>
-
-body{
-
-margin:0;
-
-background:#0f172a;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-height:100vh;
-
-font-family:Arial;
-
-}
-
-.box{
-
-background:#1e293b;
-
-padding:35px;
-
-border-radius:12px;
-
-width:340px;
-
-color:white;
-
-}
-
-input{
-
-width:100%;
-
-padding:12px;
-
-margin:10px 0;
-
-border:none;
-
-border-radius:8px;
-
-}
-
-button{
-
-width:100%;
-
-padding:12px;
-
-background:#f59e0b;
-
-border:none;
-
-border-radius:8px;
-
-font-size:16px;
-
-cursor:pointer;
-
-}
-
-button:hover{
-
-background:#fbbf24;
-
-}
-
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetim Paneli | Giriş</title>
+    <style>
+        body { margin: 0; background: #f1f5f9; display: flex; justify-content: center; align-items: center; height: 100vh; font-family: 'Segoe UI', sans-serif; }
+        .box { background: white; padding: 40px; border-radius: 16px; width: 350px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        h2 { text-align: center; color: #1e293b; margin-bottom: 25px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #cbd5e1; border-radius: 8px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #2563eb; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        button:hover { background: #1d4ed8; }
+    </style>
 </head>
-
 <body>
-
-<div class="box">
-
-<h2>Yönetim Paneli</h2>
-
-<input id="user" placeholder="Kullanıcı Adı">
-
-<input type="password" id="pass" placeholder="Şifre">
-
-<button onclick="login()">Giriş Yap</button>
-
-</div>
-
-<script>
-
-function login(){
-
-let u=document.getElementById("user").value;
-
-let p=document.getElementById("pass").value;
-
-if(u=="admin" && p=="224770506"){
-
-localStorage.setItem("login","ok");
-
-location.href="panel.html";
-
-}else{
-
-alert("Kullanıcı adı veya şifre hatalı.");
-
-}
-
-}
-
-</script>
-
+    <div class="box">
+        <h2>Giriş Yap</h2>
+        <input id="user" placeholder="Kullanıcı Adı">
+        <input type="password" id="pass" placeholder="Şifre">
+        <button onclick="login()">Giriş Yap</button>
+    </div>
+    <script>
+        function login(){
+            if(document.getElementById("user").value=="admin" && document.getElementById("pass").value=="224770506"){
+                localStorage.setItem("login","ok");
+                location.href="panel.html";
+            } else { alert("Hatalı giriş bilgileri!"); }
+        }
+    </script>
 </body>
 </html>
