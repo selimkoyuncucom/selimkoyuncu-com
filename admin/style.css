@@ -1,28 +1,35 @@
-/* Genel Ayarlar */
-body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; min-height: 100vh; background: #f4f7f6; }
-
-/* Sidebar (Menü) Tasarımı */
-.sidebar { width: 260px; background: #2c3e50; color: white; padding: 20px; display: flex; flex-direction: column; }
-.sidebar h2 { font-size: 18px; text-align: center; margin-bottom: 30px; border-bottom: 1px solid #3e4f5f; padding-bottom: 10px; }
-
-.sidebar ul { list-style: none; padding: 0; }
-.sidebar li { margin-bottom: 10px; }
-.sidebar li a { 
-    display: block; 
-    padding: 12px 20px; 
-    color: #bdc3c7; 
-    text-decoration: none; 
-    border-radius: 8px; 
-    transition: 0.3s; 
-    background: #34495e; 
+/* Sidebar Tasarımı */
+.sidebar {
+    width: 260px;
+    height: 100vh;
+    background: #1e1e2d; /* Koyu modern tema */
+    color: #a2a3b7;
+    position: fixed;
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
-.sidebar li a:hover { 
-    background: #3498db; 
-    color: white; 
-    transform: translateX(5px); 
+.sidebar-header {
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    border-bottom: 1px solid #32324e;
+    margin-bottom: 20px;
 }
 
-/* Ana İçerik Alanı */
-.main-container { flex-grow: 1; padding: 30px; }
-.content { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.nav-item {
+    padding: 15px 25px;
+    display: block;
+    color: #a2a3b7;
+    text-decoration: none;
+    transition: 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.nav-item:hover {
+    background: #2b2b40;
+    color: #fff;
+    border-left: 4px solid #3699ff; /* Aktif çizgisi */
+}
