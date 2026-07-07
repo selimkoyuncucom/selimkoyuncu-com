@@ -1,123 +1,17 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Selim Koyuncu | Yönetim Paneli</title>
-
-<link rel="stylesheet" href="style.css">
-
-<style>
-.header{
-height:70px;
-background:#fff;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:0 25px;
-border-bottom:1px solid #ddd;
-}
-
-.header h2{
-font-size:22px;
-}
-
-.logout{
-background:#ef4444;
-color:#fff;
-border:none;
-padding:10px 18px;
-border-radius:8px;
-cursor:pointer;
-}
-
-iframe{
-width:100%;
-height:calc(100vh - 70px);
-border:none;
-}
-</style>
-
-</head>
-
-<body>
-
-<script>
-if(localStorage.getItem("login")!="ok"){
-location.href="login.html";
-}
-</script>
-
 <div class="sidebar">
-
-<div class="logo">
-Selim Koyuncu
+    <h2>Selim Koyuncu</h2>
+    <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="finans.html">Finans</a></li>
+        <li><a href="organizasyon.html">Organizasyon</a></li>
+        <li><a href="haberler.html">Haberler</a></li>
+        <li><a href="koyler.html">Köyler</a></li>
+        <li><a href="galeri.html">Galeri</a></li>
+        <li><a href="ayarlar.html">Ayarlar</a></li>
+    </ul>
 </div>
 
-<div class="menu">
-
-<a href="#" onclick="sayfa('dashboard.html')">🏠 Dashboard</a>
-
-<a href="#" onclick="sayfa('finans.html')">💰 Finans</a>
-
-<a href="#" onclick="sayfa('organizasyon.html')">📅 Organizasyon</a>
-
-<a href="#" onclick="sayfa('haberler.html')">📰 Haberler</a>
-
-<a href="#" onclick="sayfa('koyler.html')">🏡 Köyler</a>
-
-<a href="#" onclick="sayfa('galeri.html')">📷 Galeri</a>
-
-<a href="#" onclick="sayfa('ayarlar.html')">⚙ Ayarlar</a>
-
+<div class="main-container">
+    <div class="content">
+        </div>
 </div>
-
-</div>
-
-<div class="content">
-
-<div class="header">
-
-<h2>Yönetim Paneli</h2>
-
-<button class="logout" onclick="cikis()">
-Çıkış Yap
-</button>
-
-</div>
-
-<iframe id="icerik" src="organizasyon.html"></iframe>
-
-</div>
-
-<script>
-
-function sayfa(link){
-
-document.getElementById("icerik").src=link;
-
-}
-
-function cikis(){
-
-localStorage.removeItem("login");
-
-location.href="login.html";
-
-}
-
-</script>
-<script>
-
-function sayfa(link){
-    document.getElementById("icerik").src = link;
-}
-
-function cikis(){
-    localStorage.removeItem("login");
-    window.location.href="login.html";
-}
-
-</script>
-</body>
-</html>
