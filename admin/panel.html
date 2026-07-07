@@ -1,82 +1,38 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Selim Koyuncu | Yönetim Paneli</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <title>Yönetim Paneli | Selim Koyuncu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-
 <body>
+    <script>
+        if(localStorage.getItem("login") !== "ok") window.location.href = "login.html";
+    </script>
 
-<script>
-// Giriş kontrolü
-if(localStorage.getItem("login") !== "ok"){
-    window.location.href = "login.html";
-}
-</script>
-
-<div class="sidebar">
-
-    <div class="logo">
-        Selim Koyuncu
+    <div class="sidebar">
+        <div class="logo">SK Yönetim</div>
+        <nav class="menu">
+            <a href="#" onclick="sayfa('dashboard.html')"><span class="material-icons">dashboard</span> Dashboard</a>
+            <a href="#" onclick="sayfa('finans.html')"><span class="material-icons">payments</span> Finans</a>
+            <a href="#" onclick="sayfa('organizasyon.html')"><span class="material-icons">event</span> Organizasyon</a>
+            <a href="#" onclick="sayfa('haberler.html')"><span class="material-icons">article</span> Haberler</a>
+            <a href="#" onclick="sayfa('ayarlar.html')"><span class="material-icons">settings</span> Ayarlar</a>
+        </nav>
     </div>
 
-    <div class="menu">
-
-        <a href="#" onclick="sayfa('dashboard.html');return false;">🏠 Dashboard</a>
-
-        <a href="#" onclick="sayfa('finans.html');return false;">💰 Finans</a>
-
-        <a href="#" onclick="sayfa('organizasyon.html');return false;">📅 Organizasyon</a>
-
-        <a href="#" onclick="sayfa('haberler.html');return false;">📰 Haberler</a>
-
-        <a href="#" onclick="sayfa('koyler.html');return false;">🏡 Köyler</a>
-
-        <a href="#" onclick="sayfa('galeri.html');return false;">📷 Galeri</a>
-
-        <a href="#" onclick="sayfa('ayarlar.html');return false;">⚙️ Ayarlar</a>
-
+    <div class="main-content">
+        <header class="header">
+            <h3>Hoş geldiniz, Selim Bey</h3>
+            <button class="logout" onclick="cikis()">Çıkış</button>
+        </header>
+        <iframe id="icerik" src="dashboard.html"></iframe>
     </div>
 
-</div>
-
-<div class="content">
-
-    <div class="header">
-
-        <h2>Yönetim Paneli</h2>
-
-        <button class="logout" onclick="cikis()">
-            Çıkış Yap
-        </button>
-
-    </div>
-
-    <iframe id="icerik" src="dashboard.html"></iframe>
-
-</div>
-
-<script>
-
-function sayfa(link){
-
-    document.getElementById("icerik").src = link;
-
-}
-
-function cikis(){
-
-    localStorage.removeItem("login");
-
-    window.location.href="login.html";
-
-}
-
-</script>
-
+    <script>
+        function sayfa(link){ document.getElementById("icerik").src = link; }
+        function cikis(){ localStorage.removeItem("login"); window.location.href="login.html"; }
+    </script>
 </body>
 </html>
