@@ -21,7 +21,645 @@
             background-image: url('http://googleusercontent.com/image_generation_content/299');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
+            background-repeat<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Her Mevsim Amasya | Zarif & Şeffaf Tasarım</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* TEMEL AYARLAR VE AMASYA RENK PALETİ */
+        :root {
+            --amasya-red: #e74c3c;      /* Elma Kırmızısı */
+            --amasya-red-light: #ff7675;
+            --amasya-green: #00b894;    /* Yeşilırmak Yeşili */
+            --amasya-green-light: #55efc4;
+            --text-dark: #2d3436;
+            --text-gray: #636e72;
+            
+            /* Zarif Şeffaflık (Glassmorphism) */
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --soft-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        /* ARKA PLAN - YUMUŞAK AMASYA RENKLERİ GRADYANI (Göz yormayan) */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--text-dark);
+            display: flex;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            /* Amasya renklerinin çok uçuk şeffaf yansıması */
+            background-image: linear-gradient(120deg, rgba(231, 76, 60, 0.03) 0%, rgba(0, 184, 148, 0.03) 100%);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+
+        /* --- ZARİF KENAR ÇUBUĞU (SIDEBAR) --- */
+        .sidebar {
+            width: 280px; /* Daha kibar genişlik */
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-right: 1px solid var(--glass-border);
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            overflow-y: auto;
+            box-shadow: var(--soft-shadow);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar::-webkit-scrollbar { width: 4px; }
+        .sidebar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 10px; }
+
+        .logo-area {
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .logo-area h1 {
+            font-size: 22px;
+            color: var(--text-dark);
+            letter-spacing: 1px;
+        }
+        .logo-area h1 span { color: var(--amasya-red); }
+        .logo-area p { font-size: 11px; color: var(--text-gray); margin-top: 5px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .nav-menu { padding: 20px 15px; flex: 1; }
+
+        /* ERGONOMİK BUTONLAR (KÜÇÜK VE ŞIK) */
+        .accordion-item {
+            margin-bottom: 8px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .accordion-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--text-dark);
+            border: none;
+            padding: 12px 15px; /* Küçültülmüş padding */
+            text-align: left;
+            font-size: 13px; /* Kibar font */
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .accordion-btn .icon-box {
+            width: 30px; /* Küçük ikon kutusu */
+            height: 30px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 14px;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        /* Amasya Konseptli Sade Renkler */
+        .btn-red .icon-box { background: linear-gradient(135deg, var(--amasya-red), var(--amasya-red-light)); }
+        .btn-green .icon-box { background: linear-gradient(135deg, var(--amasya-green), var(--amasya-green-light)); }
+        .btn-gray .icon-box { background: linear-gradient(135deg, #636e72, #b2bec3); }
+
+        .arrow { transition: transform 0.3s ease; font-size: 11px; color: var(--text-gray); }
+        .accordion-btn.active .arrow { transform: rotate(180deg); color: var(--amasya-red); }
+
+        /* ZARİF ALT MENÜ */
+        .submenu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+            background: transparent;
+        }
+
+        .submenu a {
+            display: block;
+            color: var(--text-gray);
+            text-decoration: none;
+            padding: 10px 15px 10px 55px;
+            font-size: 12px;
+            font-weight: 600;
+            border-left: 2px solid transparent;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .submenu a::before {
+            content: "";
+            position: absolute;
+            left: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #b2bec3;
+            transition: background 0.2s;
+        }
+
+        .submenu a:hover {
+            color: var(--amasya-red);
+            background: rgba(255,255,255,0.5);
+            padding-left: 60px;
+        }
+        .submenu a:hover::before { background: var(--amasya-red); width: 6px; height: 6px; }
+
+        /* İMZA ALANI */
+        .sidebar-footer {
+            padding: 20px;
+            text-align: center;
+            background: transparent;
+            font-size: 11px;
+            color: var(--text-gray);
+            border-top: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .sidebar-footer strong { 
+            color: var(--text-dark); 
+            font-size: 13px; 
+            display: block; 
+            margin-top: 5px; 
+            letter-spacing: 1px;
+        }
+
+        /* --- ANA İÇERİK ALANI --- */
+        .main-content {
+            margin-left: 280px;
+            width: calc(100% - 280px);
+            position: relative;
+            padding-bottom: 50px;
+        }
+
+        /* Üst Menü - Tertemiz */
+        .top-header {
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(15px);
+            height: 70px;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            border-bottom: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .search-container { position: relative; width: 300px; }
+        .search-container input {
+            width: 100%;
+            padding: 10px 20px 10px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+            background: var(--glass-bg);
+            font-size: 13px;
+            outline: none;
+            transition: all 0.3s;
+        }
+        .search-container input:focus { border-color: var(--amasya-green); background: white; }
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+            font-size: 12px;
+        }
+
+        .header-links a {
+            margin-left: 20px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            transition: color 0.3s;
+        }
+        .header-links a:hover { color: var(--amasya-red); }
+
+        /* İçerik Bölümleri */
+        section { padding: 40px; }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0; bottom: -8px;
+            width: 40px; height: 3px;
+            background: var(--amasya-green);
+            border-radius: 2px;
+        }
+
+        /* MANŞET (Kibar ve Temiz) */
+        .hero-banner {
+            position: relative;
+            height: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--soft-shadow);
+            background: url('https://images.unsplash.com/photo-1542052125323-e69ad37a47c2?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0) 100%);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            color: white;
+            width: 80%;
+        }
+        .badge {
+            display: inline-block;
+            background: var(--amasya-red);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .hero-content h2 { font-size: 32px; margin-bottom: 15px; }
+        .hero-content p { font-size: 14px; margin-bottom: 20px; opacity: 0.9; font-weight: 300; }
+
+        /* HABER KARTLARI (Sade ve İnce Çizgili) */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .news-card {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,1);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--soft-shadow);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            background: white;
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .card-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .news-card:hover .card-img-wrapper img { transform: scale(1.05); }
+
+        .card-info { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        .card-info h3 { font-size: 16px; margin-bottom: 10px; color: var(--text-dark); line-height: 1.4; }
+        .card-info p { color: var(--text-gray); font-size: 13px; line-height: 1.5; margin-bottom: 15px; flex: 1; }
+        
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 15px;
+            font-size: 11px;
+            color: #b2bec3;
+            font-weight: 600;
+        }
+
+        /* MİNİMAL GALERİ */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 220px;
+            box-shadow: var(--soft-shadow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img { transform: scale(1.08); }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0; left: 0; width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 20px 15px 10px;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* SADE ALT BİLGİ (FOOTER) */
+        .main-footer {
+            background: rgba(255,255,255,0.5);
+            border-top: 1px solid rgba(255,255,255,0.8);
+            padding: 40px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .footer-logo { font-size: 18px; font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text-dark); margin-bottom: 10px; }
+        .footer-logo span { color: var(--amasya-red); }
+        .footer-desc { color: var(--text-gray); font-size: 12px; margin-bottom: 20px; }
+
+        .footer-bottom {
+            padding-top: 20px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            font-size: 12px;
+            color: var(--text-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .footer-bottom span {
+            color: var(--amasya-green);
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .sidebar { width: 240px; }
+            .main-content { margin-left: 240px; width: calc(100% - 240px); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .sidebar { position: static; width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--glass-border); }
+            .main-content { margin-left: 0; width: 100%; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- KİBAR VE SADE KENAR ÇUBUĞU -->
+    <aside class="sidebar">
+        <div class="logo-area">
+            <h1>Her Mevsim<span>Amasya</span></h1>
+            <p>Resmi Tanıtım Portalı</p>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="accordion-item">
+                <button class="accordion-btn btn-red" onclick="toggleAccordion(this)">
+                    <div style="display: flex; align-items: center;">
+                        <div class="icon-box"><i class="fa-solid fa-newspaper"></i></div>
+                        Güncel Haberler
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="submenu">
+                    <a href="#manset">Son Dakika</a>
+                    <a href="#haberler">Belediye Duyuruları</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-btn btn-gray" onclick="toggleAccordion(this)">
+                    <div style="display: flex; align-items: center;">
+                        <div class="icon-box"><i class="fa-solid fa-landmark"></i></div>
+                        Tarihi Mekanlar
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="submenu">
+                    <a href="#galeri">Kral Kaya Mezarları</a>
+                    <a href="#galeri">Yalıboyu Evleri</a>
+                    <a href="#galeri">Amasya Kalesi</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-btn btn-green" onclick="toggleAccordion(this)">
+                    <div style="display: flex; align-items: center;">
+                        <div class="icon-box"><i class="fa-solid fa-leaf"></i></div>
+                        Doğa Turizmi
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="submenu">
+                    <a href="#galeri">Boraboy Gölü</a>
+                    <a href="#galeri">Yeşilırmak Tekne Turu</a>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-btn btn-red" onclick="toggleAccordion(this)">
+                    <div style="display: flex; align-items: center;">
+                        <div class="icon-box"><i class="fa-solid fa-apple-whole"></i></div>
+                        Yöresel Lezzetler
+                    </div>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                </button>
+                <div class="submenu">
+                    <a href="#haberler">Misket Elması</a>
+                    <a href="#haberler">Amasya Çöreği</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Tasarım ve Kodlama:</p>
+            <strong>Yapıcı: Selim Koyuncu</strong>
+        </div>
+    </aside>
+
+    <!-- FERAH ANA İÇERİK -->
+    <main class="main-content">
+        
+        <header class="top-header">
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Amasya'da ara...">
+            </div>
+            <div class="header-links">
+                <a href="#manset">Anasayfa</a>
+                <a href="#haberler">Haberler</a>
+                <a href="#galeri">Galeri</a>
+            </div>
+        </header>
+
+        <!-- SADE MANŞET -->
+        <section id="manset">
+            <div class="hero-banner">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <span class="badge">ÖNE ÇIKAN</span>
+                    <h2>Amasya Yalıboyu Evleri Göz Kamaştırıyor</h2>
+                    <p>Yeşilırmak'ın kenarına inci gibi dizilmiş tarihi Osmanlı konakları, yeni ışıklandırma projesiyle gece yürüyüşlerinin vazgeçilmezi oldu.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TERTEMİZ HABER KARTLARI -->
+        <section id="haberler">
+            <h2 class="section-title">Keşif Rehberi</h2>
+            
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?q=80&w=800&auto=format&fit=crop" alt="Kral Kaya">
+                    </div>
+                    <div class="card-info">
+                        <h3>Kral Kaya Mezarları Restorasyonu</h3>
+                        <p>Helenistik döneme ait mezarların çevre düzenlemesi tamamlandı.</p>
+                        <div class="card-meta"><span>Tarih</span><span>2 Saat Önce</span></div>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?q=80&w=800&auto=format&fit=crop" alt="Boraboy">
+                    </div>
+                    <div class="card-info">
+                        <h3>Boraboy Gölü Sonbahar Renkleri</h3>
+                        <p>Zümrüt yeşili krater gölü etrafında doğa yürüyüşü etkinlikleri başladı.</p>
+                        <div class="card-meta"><span>Doğa</span><span>5 Saat Önce</span></div>
+                    </div>
+                </div>
+
+                <div class="news-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1560806887-1e4cd0b6fac6?q=80&w=800&auto=format&fit=crop" alt="Elma">
+                    </div>
+                    <div class="card-info">
+                        <h3>Meşhur Misket Elması Tezgahlarda</h3>
+                        <p>Coğrafi işaretli, ince kabuklu Amasya elması hasat edildi.</p>
+                        <div class="card-meta"><span>Gastronomi</span><span>1 Gün Önce</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KİBAR GALERİ -->
+        <section id="galeri">
+            <h2 class="section-title">Amasya'dan Kareler</h2>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1527838832700-5059252407fa?q=80&w=800&auto=format&fit=crop" alt="Sokaklar">
+                    <div class="gallery-overlay">Tarihi Sokaklar</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516483638261-f40af5edca87?q=80&w=800&auto=format&fit=crop" alt="Yeşilırmak">
+                    <div class="gallery-overlay">Yeşilırmak Kıyısı</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-15320973115979206210?q=80&w=800&auto=format&fit=crop" alt="Doğa">
+                    <div class="gallery-overlay">Kral Mezarları Doğası</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ZARİF FOOTER -->
+        <footer class="main-footer">
+            <div class="footer-logo">Her Mevsim <span>Amasya</span></div>
+            <div class="footer-desc">Şehzadeler Şehri'nin doğal, tarihi ve kültürel güzellikleri tek bir platformda.</div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tüm Hakları Saklıdır.</p>
+                <span>YAPICI: SELİM KOYUNCU</span>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleAccordion(btn) {
+            var allBtns = document.querySelectorAll('.accordion-btn');
+            allBtns.forEach(function(b) {
+                if(b !== btn && b.classList.contains('active')) {
+                    b.classList.remove('active');
+                    b.nextElementSibling.style.maxHeight = null;
+                }
+            });
+
+            btn.classList.toggle("active");
+            var submenu = btn.nextElementSibling;
+            
+            if (submenu.style.maxHeight) {
+                submenu.style.maxHeight = null;
+            } else {
+                submenu.style.maxHeight = submenu.scrollHeight + "px";
+            }
+        }
+    </script>
+
+</body>
+</html>: no-repeat;
             display: flex;
             flex-direction: column;
             justify-content: center;
